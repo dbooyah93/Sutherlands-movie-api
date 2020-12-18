@@ -4,6 +4,7 @@
   "description": "A front-end app returning movie info from themoviedb.org API",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode development",
     "test": "test"
   },
   "repository": {

@@ -7,15 +7,17 @@ class App extends React.Component {
   constructor( props ) {
     super( props );
     this.state= {
-
+      title: '',
+      explicit: true,
     }
+    //this.function = this.function.bind(this)
   }
+  //function
   render() {
     return (
       <Ui>
         <Searching>
-          Hello world
-          <Form />
+          <Form title={this.state.title} explicit={ this.state.explicit } />
         </Searching>
       </Ui>
     )

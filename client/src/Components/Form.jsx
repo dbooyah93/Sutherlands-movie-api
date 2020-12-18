@@ -1,31 +1,25 @@
 import React from 'react';
 import { Entry } from '../Styles/Entries.jsx';
 
-const Form = ( { title, adult, submit, check } ) => {
+const Form = ( { title, explicit, submit, check } ) => {
   return (
     <div>
-      <form onSubmit={ () => { submit( event ) } } >
-        <div>
-          <Entry>
-            <div>
-              Movie Title:
-                <input
-                type='text'
-                name='new-ingredient'
-                onChange={() => { type( 'ingredient', event ) } }
-                placeholder='eg: Fight Club'
-                />
-            </div>
-            <div>
-              Adult content?
-              <input
-                type="checkbox"
-                checked={ true }
-                />
-            </div>
-          </Entry>
-        </div>
-      </form>
+      <Entry onSubmit={ () => { submit( event ) } }>
+          Movie Title:
+            <input
+            type='text'
+            name='new-ingredient'
+            onChange={() => { type(  ) } }
+            placeholder='eg: Fight Club'
+            />
+          Adult content?
+          <input
+            type='checkbox'
+            checked={ explicit }
+            onChange={ () => { check(  ) }}
+            />
+            <input type='submit' value='Submit' />
+      </Entry>
     </div>
   )
 }

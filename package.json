@@ -1,0 +1,33 @@
+{
+  "name": "sutherlands-movie-api",
+  "version": "1.0.0",
+  "description": "A full stack app returning movie info from themoviedb.org API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbooyah93/Sutherlands-movie-api.git"
+  },
+  "keywords": [
+    "Sutherlands",
+    "api"
+  ],
+  "author": "David M Boyea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbooyah93/Sutherlands-movie-api/issues"
+  },
+  "homepage": "https://github.com/dbooyah93/Sutherlands-movie-api#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

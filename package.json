@@ -1,7 +1,7 @@
 {
   "name": "sutherlands-movie-api",
   "version": "1.0.0",
-  "description": "A full stack app returning movie info from themoviedb.org API",
+  "description": "A front-end app returning movie info from themoviedb.org API",
   "main": "index.js",
   "scripts": {
     "test": "test"
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "Sutherlands",
-    "api"
+    "Front-end"
   ],
   "author": "David M Boyea",
   "license": "ISC",

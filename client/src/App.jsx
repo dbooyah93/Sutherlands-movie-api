@@ -32,7 +32,7 @@ class App extends React.Component {
       params: {
         api_key: APIKEY,
         language: `en-US`,
-        query: 'Scott',
+        query: this.state.searchTitle,
         page: 1,
         include_adult: false
       }

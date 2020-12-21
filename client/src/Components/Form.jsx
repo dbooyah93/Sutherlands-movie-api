@@ -9,7 +9,7 @@ const Form = ( { title, explicit, type, submit, check } ) => {
             <input
             type='text'
             name='new-ingredient'
-            onChange={() => { type( 'title', event ) } }
+            onChange={() => { type( 'searchTitle', event ) } }
             placeholder='eg: Fight Club'
             />
           Adult content?

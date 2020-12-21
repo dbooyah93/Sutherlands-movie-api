@@ -8,9 +8,11 @@ const Form = ( { title, explicit, type, submit, check } ) => {
           Movie Title:
             <input
             type='text'
+            value={title}
             name='new-ingredient'
             onChange={() => { type( 'searchTitle', event ) } }
             placeholder='eg: Fight Club'
+
             />
           Adult content?
           <input

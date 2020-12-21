@@ -27,7 +27,6 @@ class App extends React.Component {
 
   submit ( event ) {
     event.preventDefault();
-    const { searchTitle } = this.state;
     axios.get('https://api.themoviedb.org/3/search/movie?', {
       params: {
         api_key: APIKEY,
@@ -55,6 +54,9 @@ class App extends React.Component {
           runTime: runtimeHours
         })
       })
+      .catch( ( error ) => {
+        console.log( 'There was an error, talk to staff')
+      });
 
       axios.get( `https://api.themoviedb.org/3/movie/${ response.data.results[0].id }/credits`, {
         params:{
@@ -62,12 +64,15 @@ class App extends React.Component {
         }
       })
       .then( ( response ) => {
-        console.log(response)
         this.setState({
+          searchTitle: '',
           top10Cast: response.data.cast.slice( 0, 10 )
         })
-        console.log( this.state.top10Cast );
+        console.log(this.state.title)
       })
+      .catch( ( error ) => {
+        console.log( 'There was an error, talk to staff')
+      });
     }, ( error ) => {
       console.log( error )
     });
@@ -76,7 +81,6 @@ class App extends React.Component {
 
   type ( field, event ) {
     this.setState( { [ field ]: event.target.value } );
-    console.log(this.state.searchTitle);
 
   }
 

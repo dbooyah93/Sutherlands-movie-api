@@ -43,9 +43,6 @@ class App extends React.Component {
         overview: response.data.results[0].overview,
         releaseDate: response.data.results[0].release_date,
       })
-      console.log(this.state.title)
-      console.log(this.state.overview)
-      console.log(this.state.releaseDate)
 
       axios.get(`https://api.themoviedb.org/3/movie/${ response.data.results[0].id }`, {
         params: {
@@ -53,9 +50,24 @@ class App extends React.Component {
         }
       })
       .then( ( response ) => {
-        console.log( response )
+        let runtimeHours = Math.round( ( response.data.runtime / 60 ) * 100 ) / 100
+        this.setState({
+          runTime: runtimeHours
+        })
       })
 
+      axios.get( `https://api.themoviedb.org/3/movie/${ response.data.results[0].id }/credits`, {
+        params:{
+          api_key: APIKEY
+        }
+      })
+      .then( ( response ) => {
+        console.log(response)
+        this.setState({
+          top10Cast: response.data.cast.slice( 0, 10 )
+        })
+        console.log( this.state.top10Cast );
+      })
     }, ( error ) => {
       console.log( error )
     });

@@ -3,6 +3,7 @@ import { Ui } from './Styles/Ui.jsx';
 import { Searching } from './Styles/Searching.jsx';
 import axios from 'axios';
 import Form from './Components/Form.jsx';
+import Response from './Components/Response.jsx';
 
 import APIKEY from '../../APIKEY.jsx';
 
@@ -93,6 +94,7 @@ class App extends React.Component {
       <Ui>
         <Searching>
           <Form title={ this.state.searchTitle } explicit={ this.state.explicit } type={ this.type } submit={ this.submit } check={ this.check } />
+          <Response title={ this.state.title } overview={this.state.overview} releaseDate={this.state.releaseDate} runTime={this.state.runTime} top10Cast={this.state.top10Cast}/>
         </Searching>
       </Ui>
     )

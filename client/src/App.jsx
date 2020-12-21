@@ -34,7 +34,7 @@ class App extends React.Component {
         language: `en-US`,
         query: this.state.searchTitle,
         page: 1,
-        include_adult: false
+        include_adult: this.state.explicit
       }
     })
     .then( ( response ) => {
@@ -69,13 +69,12 @@ class App extends React.Component {
           searchTitle: '',
           top10Cast: response.data.cast.slice( 0, 10 )
         })
-        console.log(this.state.title)
       })
       .catch( ( error ) => {
         console.log( 'There was an error, talk to staff')
       });
     }, ( error ) => {
-      console.log( error )
+      console.log( 'There was an error talk to staff' )
     });
 
   }

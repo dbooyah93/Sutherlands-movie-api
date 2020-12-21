@@ -2,7 +2,6 @@ import React from 'react';
 import Cast from './Cast.jsx';
 
 const Response = ( { title, overview, releaseDate, runTime, top10Cast } ) => {
-  console.log(top10Cast);
   return (
     <div>
       <h1>Title: { title } </h1>

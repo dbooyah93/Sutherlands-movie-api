@@ -4,6 +4,5 @@ export const Entry = styled.form`
   padding: 0;
   width: 100%;
   flex-wrap: nowrap;
-  background-color: green;
   justify-content: space-between;
 `

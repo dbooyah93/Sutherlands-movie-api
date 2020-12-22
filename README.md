@@ -16,4 +16,7 @@ export default APIKEY;
 ```
 2. In the CLI run `npm install`
 3. After installation run `npm run build`
-4. Find the index in the repo folder and launch it in a browser. You're done.
+At this point the index.html file will show the application and work, but to run on the provided server continue
+4. The default port is 3000 if you want a different port add to an .env file `PORT=<<yourport here>>`
+5. In the CLI run `npm run start`
+Now the application is live on your localhost

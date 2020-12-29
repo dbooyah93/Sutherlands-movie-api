@@ -23,8 +23,6 @@ class App extends React.Component {
     this.check = this.check.bind( this );
   }
 
-
-
   submit ( event ) {
     event.preventDefault();
     axios.get('https://api.themoviedb.org/3/search/movie?', {

@@ -7,7 +7,7 @@ const Cast = ( { top10Cast } ) => {
         { top10Cast.map( ( cast, index ) => {
           return (
             <h4 key={index}>
-              { cast.name }
+              { cast.name } as { cast.character }
             </h4>
           )
         })}

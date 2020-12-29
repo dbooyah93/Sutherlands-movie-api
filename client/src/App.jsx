@@ -48,7 +48,7 @@ class App extends React.Component {
         }
       })
       .then( ( response ) => {
-        let runtimeHours = Math.round( ( response.data.runtime / 60 ) * 100 ) / 100
+        let runtimeHours = response.data.runtime;
         this.setState({
           runTime: runtimeHours,
           searchTitle: '',

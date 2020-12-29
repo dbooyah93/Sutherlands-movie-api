@@ -5,20 +5,20 @@ import axios from 'axios';
 import Form from './Components/Form.jsx';
 import Response from './Components/Response.jsx';
 import APIKEY from '../../APIKEY.jsx';
-
+let initialState = {
+  found: false,
+  searchTitle: '',
+  explicit: true,
+  title: '',
+  overview: '',
+  releaseDate: '',
+  runTime: '',
+  top10Cast: ''
+};
 class App extends React.Component {
   constructor( props ) {
     super( props );
-    this.state= {
-      found: false,
-      searchTitle: '',
-      explicit: true,
-      title: '',
-      overview: '',
-      releaseDate: '',
-      runTime: '',
-      top10Cast: ''
-    }
+    this.state = initialState;
     this.type = this.type.bind( this );
     this.submit = this.submit.bind( this );
     this.check = this.check.bind( this );
@@ -26,6 +26,7 @@ class App extends React.Component {
 
   submit ( event ) {
     event.preventDefault();
+    this.setState(initialState);
     axios.get('https://api.themoviedb.org/3/search/movie?', {
       params: {
         api_key: APIKEY,
@@ -62,7 +63,6 @@ class App extends React.Component {
       });
     })
     .catch( ( error ) => {
-      this.setState( { found: false } );
       alert('Title not found. Please try another, be more specific, or check spelling.');
       console.log( 'There was an error' )
     });

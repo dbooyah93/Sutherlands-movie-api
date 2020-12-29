@@ -10,6 +10,7 @@ class App extends React.Component {
   constructor( props ) {
     super( props );
     this.state= {
+      found: false,
       searchTitle: '',
       explicit: true,
       title: '',
@@ -39,6 +40,7 @@ class App extends React.Component {
         title: response.data.results[0].title,
         overview: response.data.results[0].overview,
         releaseDate: response.data.results[0].release_date,
+        found: true
       })
 
       axios.get(`https://api.themoviedb.org/3/movie/${ response.data.results[0].id }`, {
@@ -56,10 +58,13 @@ class App extends React.Component {
         })
       })
       .catch( ( error ) => {
-        console.log( 'There was an error, talk to staff')
+        console.log( 'There was an error, talk to staff.........')
       });
-    }, ( error ) => {
-      console.log( 'There was an error talk to staff' )
+    })
+    .catch( ( error ) => {
+      this.setState( { found: false } );
+      alert('Title not found. Please try another, be more specific, or check spelling.');
+      console.log( 'There was an error' )
     });
 
   }
@@ -74,14 +79,24 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <Ui>
-        <Searching>
-          <Form title={ this.state.searchTitle } explicit={ this.state.explicit } type={ this.type } submit={ this.submit } check={ this.check } />
-          <Response title={ this.state.title } overview={this.state.overview} releaseDate={this.state.releaseDate} runTime={this.state.runTime} top10Cast={this.state.top10Cast}/>
-        </Searching>
-      </Ui>
-    )
+    if ( this.state.found ) {
+      return (
+        <Ui>
+          <Searching>
+            <Form title={ this.state.searchTitle } explicit={ this.state.explicit } type={ this.type } submit={ this.submit } check={ this.check } />
+            <Response title={ this.state.title } overview={this.state.overview} releaseDate={this.state.releaseDate} runTime={this.state.runTime} top10Cast={this.state.top10Cast}/>
+          </Searching>
+        </Ui>
+      )
+    } else {
+      return (
+        <Ui>
+          <Searching>
+            <Form title={ this.state.searchTitle } explicit={ this.state.explicit } type={ this.type } submit={ this.submit } check={ this.check } />
+          </Searching>
+        </Ui>
+      )
+    }
   }
 }
 

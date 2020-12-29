@@ -45,28 +45,16 @@ class App extends React.Component {
 
       axios.get(`https://api.themoviedb.org/3/movie/${ response.data.results[0].id }`, {
         params: {
-          api_key: APIKEY
+          api_key: APIKEY,
+          append_to_response: 'credits'
         }
       })
       .then( ( response ) => {
         let runtimeHours = Math.round( ( response.data.runtime / 60 ) * 100 ) / 100
         this.setState({
-          runTime: runtimeHours
-        })
-      })
-      .catch( ( error ) => {
-        console.log( 'There was an error, talk to staff')
-      });
-
-      axios.get( `https://api.themoviedb.org/3/movie/${ response.data.results[0].id }/credits`, {
-        params:{
-          api_key: APIKEY
-        }
-      })
-      .then( ( response ) => {
-        this.setState({
+          runTime: runtimeHours,
           searchTitle: '',
-          top10Cast: response.data.cast.slice( 0, 10 )
+          top10Cast: response.data.credits.cast.slice( 0, 10 )
         })
       })
       .catch( ( error ) => {

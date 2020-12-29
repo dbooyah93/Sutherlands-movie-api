@@ -9,7 +9,7 @@ const Response = ( { title, overview, releaseDate, runTime, top10Cast } ) => {
   if ( runTime !== '' ) { // so runTime ~~~ 160
     hr = Math.floor( runTime / 60 );
     colon = ':';
-    min = runTime % 60;
+    min = ( ( runTime % 60 ) + '0' ).slice( 0, 2 );
   }
   return (
     <div>

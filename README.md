@@ -1,6 +1,10 @@
 # Sutherlands-movie-api
 
-A front-end application to return information on a movie parsed from the themoviedb.org database
+A front-end application to return information on a movie parsed from the themoviedb.org database.
+
+## A demo
+
+During work hours [this link](http://18.221.179.187:3000/) http://18.221.179.187:3000/ should be working able to take you to the application deployed over AWS.
 
 ### themoviedb.org end point looks like this
 
